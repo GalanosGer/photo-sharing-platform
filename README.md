@@ -160,4 +160,4 @@ National and Kapodistrian University of Athens
 
 GitHub: https://github.com/GalanosGer
 
-LinkedIn: *(Add your LinkedIn profile here)*
+LinkedIn: *www.linkedin.com/in/gerasimos-galanos*
