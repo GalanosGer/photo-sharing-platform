@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments - k29photo</title>
+</head>
+<body>
+    <div>
+        <h2>Υποβολή Σχολίου</h2>
+
+        <form method="POST" action="/add_comment">
+            <p>Κωδικός φωτογραφίας: <strong>{{ photo_id }}</strong></p>
+            <input type="hidden" name="photo_id" value="{{ photo_id }}">
+
+            <label>Κείμενο Σχολίου *:</label><br>
+            <input type="text" name="comment_text" required><br><br>
+
+            <button type="submit">Υποβολή Σχολίου</button>
+        </form>
+    </div>
+    <br>
+    <a href="/">[ 🏠 Αρχική ]</a>
+</body>
+</html>

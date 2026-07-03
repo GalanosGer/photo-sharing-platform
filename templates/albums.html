@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Αναζήτηση Άλμπουμ - k29photo</title>
+</head>
+<body>
+    <div>
+        <h2>Αναζήτηση Άλμπουμ</h2>
+        <form method="GET" action="/search_albums">
+            <label>Username χρήστη *:</label>
+            <input type="text" name="user_id" required value="{{ album_owner if album_owner else '' }}">
+            <button type="submit">Εύρεση Χρήστη</button>
+        </form>
+
+        {% if error %}
+            <p><strong>Σφάλμα:</strong> {{ error }}</p>
+        {% endif %}
+
+        {% if album_title is defined and not error %}
+            <hr>
+            <h3>Άλμπουμ του χρήστη: @{{ album_owner }}</h3>
+            <form method="GET" action="/search_albums">
+                <input type="hidden" name="user_id" value="{{ album_owner }}">
+                <label>Επίλεξε Άλμπουμ προς προβολή:</label>
+                <select name="album_title" required>
+                    <option value="" disabled selected>-- Διάλεξε ένα άλμπουμ --</option>
+                    {% for album in album_title %}
+                        <option value="{{ album.title }}">{{ album.title }}</option>
+                    {% else %}
+                        <option value="" disabled>Ο χρήστης δεν έχει δημιουργήσει κανένα άλμπουμ!</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Προβολή Φωτογραφιών</button>
+            </form>
+        {% endif %}
+    </div>
+    <br>
+    <a href="/">[ 🏠 Αρχική ]</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Likes - k29photo</title>
+</head>
+<body>
+    <div>
+        <h2>Υποβολή / Αφαίρεση Like</h2>
+
+        <form method="POST" action="/like_photo">
+            <p>Κωδικός φωτογραφίας: <strong>{{ photo_id }}</strong></p>
+            <input type="hidden" name="photo_id" value="{{ photo_id }}">
+
+            <button type="submit">Επιβεβαίωση</button>
+        </form>
+    </div>
+    <br>
+    <a href="/">[ 🏠 Αρχική ]</a>
+</body>
+</html>

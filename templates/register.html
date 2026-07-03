@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - k29photo</title>
+</head>
+<body>
+    <div>
+        <h2>Δημιουργία Λογαριασμού</h2>
+        {% if error %}
+            <p><strong>Σφάλμα:</strong> {{ error }}</p>
+        {% endif %}
+
+        <form method="POST" action="/register" enctype="multipart/form-data">
+            <label>Username (User ID) *:</label><br>
+            <input type="text" name="user_id" required><br><br>
+
+            <label>Όνομα *:</label><br>
+            <input type="text" name="first_name" required><br><br>
+
+            <label>Επίθετο *:</label><br>
+            <input type="text" name="last_name" required><br><br>
+
+            <label>Email *:</label><br>
+            <input type="email" name="email" required><br><br>
+
+            <label>Κωδικός Πρόσβασης *:</label><br>
+            <input type="password" name="password" required><br><br>
+
+            <label>Φύλο *:</label><br>
+            <select name="sex">
+                <option value="Male">Άνδρας</option>
+                <option value="Female">Γυναίκα</option>
+                <option value="Other">Άλλο</option>
+            </select><br><br>
+
+            <label>Ημερομηνία Γέννησης (Προαιρετικό):</label><br>
+            <input type="date" name="dob"><br><br>
+
+            <label>Πόλη Καταγωγής:</label><br>
+            <input type="text" name="hometown"><br><br>
+
+            <label>Φωτογραφία Προφίλ:</label><br>
+            <input type="file" name="profile_pic" accept="image/*"><br><br>
+
+            <button type="submit">Εγγραφή</button>
+        </form>
+    </div>
+    <br>
+    <a href="/">[ 🏠 Αρχική ]</a>
+</body>
+</html>

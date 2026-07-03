@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Αναζήτηση Σχολίων - k29photo</title>
+</head>
+<body>
+    <h2>Αναζήτηση με Βάση τα Σχόλια</h2>
+    <hr>
+
+    <form method="GET" action="/search_comments">
+        <label>Γράψε το ακριβές κείμενο του σχολίου:</label><br>
+        <input type="text" name="query_text" required placeholder="π.χ. geia" value="{{ query_text if query_text else '' }}">
+        <button type="submit">Αναζήτηση</button>
+    </form>
+
+    {% if query_text %}
+        <hr>
+        <h3>Χρήστες που έγραψαν ακριβώς το σχόλιο: " {{ query_text }} "</h3>
+
+        <ol>
+            {% for user in users %}
+                <li>
+                    <strong>{{ user.name }} {{ user.surname }}</strong>
+                    (<a href="/search_albums?user_id={{ user.user_id }}">@{{ user.user_id }}</a>)
+                    - Συνολικά σχόλια: <strong>{{ user.match_count }}</strong>
+                </li>
+            {% else %}
+                <p>Δεν βρέθηκε κανένας εγγεγραμμένος χρήστης που να έχει γράψει αυτό το σχόλιο.</p>
+            {% endfor %}
+        </ol>
+    {% endif %}
+
+    <br><br>
+    <a href="/">[ 🏠 Αρχική ]</a>
+</body>
+</html>
